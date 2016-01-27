@@ -65,12 +65,12 @@ server.register({
                 reply('OK');
             },
             config: {
-                validate: {
-                    payload: {
-                        long: Joi.string().required(),
-                        lat: Joi.string().required()
-                    }
-                }
+                /*validate: {
+                 payload: {
+                 long: Joi.string().required(),
+                 lat: Joi.string().required()
+                 }
+                 }*/
             }
         });
 
