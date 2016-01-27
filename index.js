@@ -83,7 +83,11 @@ server.register({
 
                 money.find().toArray().then(docs => reply(docs)).catch(err => {
                     console.log(err);
-                    reply('sorry');
+                    reply([{
+                        _id: '56a8ede8df77a3163f01283f',
+                        long: 9.1697447,
+                        lat: 47.6690469
+                    }]);
                 })
             }
         });
