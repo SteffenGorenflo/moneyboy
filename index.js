@@ -56,7 +56,11 @@ server.register({
                 var db = request.server.plugins['hapi-mongodb'].db;
                 var money = db.collection('money');
 
-                money.insertOne(request.payload);
+                money.insertOne(request.payload)
+                    .catch(err => {
+                            cosnsole.log(err);
+                        }
+                    );
 
                 reply('OK');
             },
@@ -78,10 +82,11 @@ server.register({
                 var money = db.collection('money');
 
                 money.find().toArray().then(docs => reply(docs)).catch(err => {
-console.log(err);
-reply('sorry');
-            })
-        }});
+                    console.log(err);
+                    reply('sorry');
+                })
+            }
+        });
 
 
         server.start(err => {
