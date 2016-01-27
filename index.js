@@ -77,9 +77,11 @@ server.register({
                 var db = request.server.plugins['hapi-mongodb'].db;
                 var money = db.collection('money');
 
-                money.find().toArray().then(docs => reply(docs)).catch(reply('sorry'));
-            }
-        });
+                money.find().toArray().then(docs => reply(docs)).catch(err => {
+console.log(err);
+reply('sorry');
+            })
+        }});
 
 
         server.start(err => {
